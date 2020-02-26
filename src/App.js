@@ -1,21 +1,51 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
-// import { ArcGauge } from '@progress/kendo-react-gauges';
+import { ArcGauge } from '@progress/kendo-react-gauges';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleRight, faPlus, faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import './App.scss';
+
+
+class ArcGaugeComponent extends React.Component {
+  constructor(props) {
+      super(props);
+
+      this.state = {
+          value: 30
+      };
+  }
+
+  render() {
+      const colors = [
+          { from: 0, to: 100, color: '#d0021b' }
+      ];
+
+      const arcOptions = {
+          value: this.state.value,
+          colors
+      };
+
+      const arcCenterRenderer = (value, color) => {
+          return (<h3>{value}</h3>);
+      };
+
+      return (
+          <ArcGauge {...arcOptions} arcCenterRender={arcCenterRenderer} />
+      );
+  }
+}
 
 function Requests() {
   return (
     <div>
       <p className="requests-title"><span className="highlighted-concept">Open</span> Requests <span className="dependent-concept">last 90 days</span></p>
       <div className="legend-position">
-        <div className="gauge percentage">
+        {/* <div className="gauge percentage">
           <div className="meter"></div>
           <div className="percentage-container">
             <div className="percentage-indicator">14</div>
           </div>
-        </div>
+        </div> */}
+        <ArcGaugeComponent />
         <ul className="graph-legends">
           <li className="graph-critical graph-legends-item">
             <ul>

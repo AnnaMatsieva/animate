@@ -384,3 +384,45 @@ ul {
     display: none;
   }
 }
+
+// react gauge
+.equipment {
+  .legend-position {
+    text-align: center;
+  }
+  .graph-legends-item {
+    text-align: initial;
+  }
+  .k-arcgauge {
+    width: 45%;
+  }
+  .k-arcgauge-label {
+    left: 50% !important;
+    top: inherit !important;
+    transform: translateX(-50%);
+    bottom: 15px;
+    h3 {
+      font-size: 2.5rem;
+      color: #00397c;
+      font-weight: 100;
+    }
+  }
+
+  .open-requests {
+    .k-arcgauge g g path {
+      stroke: #ec9aa4;
+
+      &:last-child {
+        stroke: #d0021b;
+      }
+    }
+  }
+  .close-requests {
+    .k-arcgauge g g path {
+      stroke: #7befb2;
+      &:last-child {
+        stroke: #00bf6f;
+      }
+    }
+  }
+}
